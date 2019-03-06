@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Learning D3 Loading External Data</title>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+    </head>
+    <body>
+        <script>
+            /*We have to load this in a server type of configuration*/
+            d3.csv("mydata.csv", function(data){
+
+                var canvas = d3.select("body")
+                                .append("svg")
+                                .attr("width", 500)
+                                .attr("height", 500);
+
+                canvas.selectAll("rect")
+                        .data(data)
+                        .enter()
+                            .append("rect")
+                            .attr("width", function(d){ return d.age * 10;})
+                            .attr("height", 30)
+                            .attr("y", function(d, i){ return i * 50;})
+                            .attr("fill","blue");
+            })
+
+        </script>
+    </body>
+</html>

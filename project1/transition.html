@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Learning D3 Transition</title>
+        <script src="https://d3js.org/d3.v5.min.js"></script> 
+    </head>
+    <body>
+        <script>
+            var canvas = d3.select("body")
+                        .append("svg")
+                        .attr("width", 500)
+                        .attr("height", 500);
+            
+            var circle = canvas.append("circle")
+                        .attr("cx",50)
+                        .attr("cy",50)
+                        .attr("r",25);
+
+            circle.transition()
+                .attr("cx", 100)
+                .attr("cy", 100)
+                .attr("r",50)
+                .attr("fill","green")
+                .duration(1500)
+                .delay(1000)
+                .transition()
+                    .attr("cx", 50)
+                    .attr("cy", 50)
+                    .attr("r",25)
+                    .attr("fill","blue")
+                .on("end", function(){ d3.select(this).attr("fill","red");});
+        </script>
+    </body>
+</html>

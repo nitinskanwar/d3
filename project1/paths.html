@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Learning D3 Loading External Data</title>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+    </head>
+    <body>
+        <script>
+          var canvas = d3.select("body")
+                          .append("svg")
+                          .attr("height", 500)
+                          .attr("width", 500);
+
+          var data = [
+                      {x:10, y:20},
+                      {x:40, y:60},
+                      {x:50, y:70}
+                    ];
+
+          var group = canvas.append("g")
+                      .attr("transform", "translate(100,100)");
+
+          var line = d3.line()
+                      .x(function(d) { return d.x ;})
+                      .y(function(d) { return d.y ;});
+
+          group.selectAll("path")
+                .data([data])
+                .enter()
+                .append("path")
+                .attr("d", line)
+                .attr("fill","none")
+                .attr("stroke","black")
+                .attr("stroke-width","200");
+
+        </script>
+    </body>
+</html>

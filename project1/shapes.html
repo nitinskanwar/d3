@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Learning D3 Shapes</title>
+        <script src="https://d3js.org/d3.v5.min.js"></script> 
+    </head>
+    <body>
+        <script>
+            var canvas = d3.select("body")
+                            .append("svg")
+                            .attr("width",500)
+                            .attr("height",500);
+
+            var circle = canvas.append("circle")
+                                .attr("cx", 250)
+                                .attr("cy", 250)
+                                .attr("r",50)
+                                .attr("fill","red");
+
+            var rectangle = canvas.append("rect")
+                                    .attr("width", 100)
+                                    .attr("height", 250)
+                                    .attr("fill","red");
+
+            var line = canvas.append("line")
+                                    .attr("x1", 300)
+                                    .attr("x2", 1000)
+                                    .attr("y1", 0)
+                                    .attr("y2", 0)
+                                    .attr("stroke","green")
+                                    .attr("stroke-width",10);
+        </script>
+    </body>
+</html>
